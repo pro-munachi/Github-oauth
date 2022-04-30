@@ -1,0 +1,37 @@
+.user-container {
+  width: 26%;
+}
+
+.user-image {
+  position: relative;
+}
+
+.user-image img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  max-width: 250px;
+  max-height: 250px;
+  position: absolute;
+  margin-top: -30px;
+}
+
+.user-top {
+  margin-top: 220px;
+}
+
+.user-top h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.user-top h5 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.user-top button {
+  width: 100%;
+  padding: 3px 0;
+  margin: 6px 0;
+}

@@ -1,0 +1,35 @@
+.profile-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.profile-top {
+  height: 30px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.profile-top ul {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.profile-top ul li {
+  text-align: center;
+  height: 100%;
+  border-bottom: 1px solid red;
+  font-size: 14px;
+  margin: 0 10px;
+  list-style: none;
+}
+
+.profile-bottom {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
