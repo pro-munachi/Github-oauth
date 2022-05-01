@@ -35,7 +35,7 @@ const Repositories = ({ repos }) => {
       </div>
 
       {repos &&
-        repos.map((item) => (
+        repos.slice(0, 20).map((item) => (
           <div className='repo-bottom' key={item.id}>
             <div className='left'>
               <div className='left-top'>

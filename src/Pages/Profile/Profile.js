@@ -1,39 +1,24 @@
+// Installed Files
 import React, { useEffect, useState } from 'react'
-import Repositories from '../../Components/Repositories/Repositories'
-import User from '../../Components/User/User'
-import './style.css'
-import axios from 'axios'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import InventoryIcon from '@mui/icons-material/Inventory'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
 import CreditScoreIcon from '@mui/icons-material/CreditScore'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
+import { useDispatch, useSelector } from 'react-redux'
+
+// Locally Created Files
+import Repositories from '../../Components/Repositories/Repositories'
+import User from '../../Components/User/User'
+import './style.css'
+import { getGithubData } from '../../store/features/github/githubSlice'
 
 const Profile = () => {
-  const [user, setUser] = useState([])
-  const [repo, setRepo] = useState([])
-  const headers = {
-    Authorization: 'token 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',
-  }
+  const dispatch = useDispatch()
+  const res = useSelector((state) => state.github)
 
   useEffect(() => {
-    axios
-      .get(
-        'http://localhost:5000/users/gitdata/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',
-        { headers: headers }
-      )
-      .then((res) => {
-        setUser(res.data.profile)
-
-        const slice = res.data.repos.slice(0, 20)
-
-        const sort = slice.sort((a, b) => b.updated_at - a.updated_at)
-        setRepo(sort)
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    dispatch(getGithubData())
   }, [])
 
   return (
@@ -48,7 +33,7 @@ const Profile = () => {
           </li>
           <li className='repo-tab'>
             <CreditScoreIcon style={{ fontSize: '16px', margin: '0 6px' }} />{' '}
-            Repositories <div>{repo && repo.length}</div>
+            Repositories <div>{res.isSuccess && res.data.repos.length}</div>
           </li>
           <li>
             <AccountTreeIcon
@@ -74,9 +59,9 @@ const Profile = () => {
       </div>
 
       <div className='profile-bottom'>
-        <User profile={user} />
+        <User profile={res.data.profile} />
 
-        <Repositories repos={repo} />
+        <Repositories repos={res.data.repos} />
       </div>
     </div>
   )

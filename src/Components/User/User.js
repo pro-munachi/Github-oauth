@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOnOutlined'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import TwitterIcon from '@mui/icons-material/Twitter'
@@ -6,62 +6,67 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import './style.css'
 
 const User = ({ profile }) => {
-  console.log(profile)
+  const [user, setUser] = useState({})
+  useEffect(() => {
+    if (profile) {
+      setUser(profile)
+    }
+  }, [profile])
   return (
     <div className='user-container'>
       <div className='user-hidden'>
         <div className='hidden-image'>
-          <img src={profile.avatar} alt={profile.name} />
+          <img src={user && user.avatar} alt={user && user.name} />
         </div>
 
         <div className='hidden-text'>
-          <h3>{profile.name}</h3>
-          <h5>{profile.name}</h5>
+          <h3>{user && user.name}</h3>
+          <h5>{user && user.username}</h5>
         </div>
       </div>
 
       <div className='user-image'>
-        <img src={profile.avatar} alt={profile.name} />
+        <img src={user && user.avatar} alt={user && user.name} />
       </div>
 
       <div className='user-top'>
-        <h3 className='user-name'>{profile.name}</h3>
-        <h5 className='user-login'>{profile.name}</h5>
+        <h3 className='user-name'>{user && user.name}</h3>
+        <h5 className='user-login'>{user && user.username}</h5>
 
         <button>Follow</button>
-        <p className='profile-bio'>{profile.bio ? profile.bio : null}</p>
+        <p className='profile-bio'>{user && user.bio ? user.bio : null}</p>
       </div>
 
       <div className='user-follow'>
         <p>
-          <span>{profile.followers}</span> followers
+          <span>{user && user.followers}</span> followers
         </p>
         <p className='mid'>.</p>
         <p>
-          <span>{profile.following}</span> following
+          <span>{user && user.following}</span> following
         </p>
       </div>
 
       <div className='user-bottom'>
         <div>
-          {profile.location ? (
+          {user && user.location ? (
             <p>
               <LocationOnIcon style={{ fontSize: '16px' }} className='icon' />{' '}
-              {profile.location}
+              {user.location}
             </p>
           ) : null}
         </div>
         <div>
-          {profile.email ? (
+          {user && user.email ? (
             <p>
-              <MailOutlineIcon style={{ fontSize: '16px' }} /> {profile.email}{' '}
+              <MailOutlineIcon style={{ fontSize: '16px' }} /> {user.email}{' '}
             </p>
           ) : null}
         </div>
         <div>
-          {profile.twitter ? (
+          {user && user.twitter ? (
             <p>
-              <TwitterIcon style={{ fontSize: '16px' }} /> {profile.twitter}{' '}
+              <TwitterIcon style={{ fontSize: '16px' }} /> {user.twitter}{' '}
             </p>
           ) : null}
         </div>
