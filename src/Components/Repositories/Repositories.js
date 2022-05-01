@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Moment from 'react-moment'
+import StarBorderIcon from '@mui/icons-material/StarBorder'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined'
 
 import './style.css'
 
@@ -30,7 +33,6 @@ const Repositories = ({ repos }) => {
           <button>sort</button>
         </div>
       </div>
-      <hr />
 
       {repos &&
         repos.map((item) => (
@@ -38,7 +40,7 @@ const Repositories = ({ repos }) => {
             <div className='left'>
               <div className='left-top'>
                 <h3>{item.name}</h3>
-                <p>{item.visibility === 'public' && 'public'}</p>
+                <p>{item.visibility === 'public' && 'Public'}</p>
               </div>
 
               <p className='forked-from'>{item.fork && item.forks_url}</p>
@@ -48,9 +50,33 @@ const Repositories = ({ repos }) => {
               </p>
 
               <div className='left-bottom'>
-                <p className='one'>{item.language && item.language}</p>
-                <p className='two'>{item.forks_count && item.forks_count}</p>
-                {/* <p className='three'>{item.license && item.license}</p> */}
+                {item.language && (
+                  <div className='one'>
+                    <div className='color' />
+                    <div>{item.language}</div>
+                  </div>
+                )}
+                {item.stargazers_count > 0 && (
+                  <p className='two'>
+                    <StarBorderIcon
+                      style={{ fontSize: '16px' }}
+                      className='icon'
+                    />
+                    {item.stargazers_count}
+                  </p>
+                )}
+                <p className='two'>
+                  {item.forks_count > 0 && item.forks_count}
+                </p>
+                {item.license && (
+                  <p className='two'>
+                    <BalanceOutlinedIcon
+                      style={{ fontSize: '16px' }}
+                      className='icon'
+                    />
+                    {item.license.name}
+                  </p>
+                )}
                 <p className='four'>
                   Updated{' '}
                   <Moment fromNow>{item.updated_at && item.updated_at}</Moment>
@@ -59,9 +85,12 @@ const Repositories = ({ repos }) => {
             </div>
 
             <div className='right'>
-              <button>
-                Stars
-                <span>{'>'}</span>
+              <button className='button1'>
+                <StarBorderIcon style={{ fontSize: '16px' }} />
+                Star
+              </button>
+              <button className='button2'>
+                <KeyboardArrowDownIcon style={{ fontSize: '14px' }} />
               </button>
             </div>
           </div>

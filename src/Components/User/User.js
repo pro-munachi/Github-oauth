@@ -1,4 +1,8 @@
 import React from 'react'
+import LocationOnIcon from '@mui/icons-material/LocationOnOutlined'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import TwitterIcon from '@mui/icons-material/Twitter'
+
 import './style.css'
 
 const User = ({ profile }) => {
@@ -39,12 +43,29 @@ const User = ({ profile }) => {
       </div>
 
       <div className='user-bottom'>
-        <p>{profile.location ? profile.location : null}</p>
-        <p>{profile.email ? profile.email : null}</p>
-        <p>{profile.twitter ? profile.twitter : null}</p>
+        <div>
+          {profile.location ? (
+            <p>
+              <LocationOnIcon style={{ fontSize: '16px' }} className='icon' />{' '}
+              {profile.location}
+            </p>
+          ) : null}
+        </div>
+        <div>
+          {profile.email ? (
+            <p>
+              <MailOutlineIcon style={{ fontSize: '16px' }} /> {profile.email}{' '}
+            </p>
+          ) : null}
+        </div>
+        <div>
+          {profile.twitter ? (
+            <p>
+              <TwitterIcon style={{ fontSize: '16px' }} /> {profile.twitter}{' '}
+            </p>
+          ) : null}
+        </div>
       </div>
-
-      <hr />
 
       <h4>Achievements</h4>
     </div>

@@ -12,16 +12,15 @@
 
 .user-image img {
   border-radius: 50%;
-  width: 250px;
-  height: 250px;
-  max-width: 250px;
-  max-height: 250px;
+  width: 300px;
+  max-height: 300px;
+
   position: absolute;
   margin-top: -30px;
 }
 
 .user-top {
-  margin-top: 220px;
+  margin-top: 280px;
 }
 
 .user-top h3 {
@@ -30,8 +29,8 @@
 }
 .user-top h5 {
   margin: 0;
-  font-weight: 300;
-  font-size: 19px;
+  font-weight: 400;
+  font-size: 17px;
 }
 
 .user-top button {
@@ -39,7 +38,8 @@
   padding: 6px 0;
   margin: 6px 0;
   border-radius: 4px;
-  border: 1px solid gray;
+  border: 1px solid rgb(216, 213, 213);
+  cursor: pointer;
 }
 
 .user-top p {
@@ -58,7 +58,7 @@
 }
 
 .user-follow p span {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .user-follow .mid {
@@ -69,18 +69,41 @@
 
 .user-bottom {
   margin: 0;
+  border-bottom: 1px solid rgb(216, 213, 213);
 }
 
-.user-bottom p {
+.user-bottom div {
   margin: 0;
   font-size: 13px;
+  font-weight: 600;
+}
+
+.user-bottom div p {
+  display: flex;
+  align-items: center;
 }
 
 /* Media Queries */
 
+@media (max-width: 1200px) {
+  .user-image img {
+    border-radius: 50%;
+    width: 260px;
+    height: 260px;
+    max-width: 260px;
+    max-height: 260px;
+    position: absolute;
+    margin-top: -10px;
+  }
+}
+
 @media (max-width: 1030px) {
   .user-container {
     width: 24%;
+  }
+
+  .user-top {
+    margin-top: 200px;
   }
 
   .user-image img {
@@ -110,5 +133,33 @@
 
   .user-hidden {
     display: flex;
+    margin: 0;
+    align-items: center;
+  }
+  .user-hidden .hidden-image img {
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+  }
+
+  .user-hidden .hidden-text {
+    margin-left: 11px;
+  }
+
+  .user-hidden .hidden-text h3 {
+    font-size: 23px;
+    margin: 0;
+  }
+
+  .user-hidden .hidden-text h5 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .user-top {
+    margin-top: 5px;
   }
 }

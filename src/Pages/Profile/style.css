@@ -7,7 +7,7 @@
 .profile-top {
   height: 30px;
   text-align: center;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(233, 229, 229);
   width: 100%;
 }
 
@@ -15,20 +15,40 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  height: 100%;
+}
+
+.profile-top ul .repo-tab {
+  text-align: center;
+  border-bottom: 2px solid red;
+  font-size: 14px;
+  margin: 0 10px;
+  list-style: none;
+  font-weight: 700;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.profile-top ul .repo-tab div {
+  background-color: rgb(241, 238, 238);
+  margin-left: 3px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
 }
 
 .profile-top ul li {
   text-align: center;
   height: 100%;
-  border-bottom: 1px solid red;
   font-size: 14px;
   margin: 0 10px;
   list-style: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .profile-bottom {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

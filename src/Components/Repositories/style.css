@@ -14,6 +14,8 @@
   margin: 17px 0;
   justify-content: space-between;
   width: 100%;
+  border-bottom: 1px solid rgb(216, 213, 213);
+  padding-bottom: 20px;
 }
 
 .repo-input {
@@ -22,8 +24,11 @@
 
 .repo-input input {
   width: 100%;
-  padding: 4px 0;
-  padding-left: 5px;
+  padding: 8px 0;
+  padding-left: 8px;
+  border: 1px solid rgb(216, 213, 213);
+  border-radius: 5px;
+  outline: none;
 }
 
 .repo-select {
@@ -34,12 +39,12 @@
 }
 
 .repo-select button {
-  border: 1px solid gray;
   height: 100%;
   margin: 0 2px;
   padding: 4 10px;
   border-radius: 3px;
   text-transform: capitalize;
+  border: 1px solid rgb(216, 213, 213);
 }
 
 /* Bottom Part That Contains All Repositories */
@@ -48,7 +53,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(233, 229, 229);
   padding: 14px 0;
 }
 
@@ -66,25 +71,20 @@
 
 .repo-bottom .left .left-top p {
   margin: 3px 0 0 7px;
-  border: 1px solid gray;
-  padding: 1px 3px;
+  border: 1px solid rgb(216, 213, 213);
+  padding: 1px 6px;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
 }
 
-.repo-bottom .left .forked-from {
-  margin: 0;
-  font-size: 14px;
-}
-
 .repo-bottom .left .description {
-  margin: 0;
+  margin: 5px 0;
   font-size: 14px;
 }
 .repo-bottom .left .forked-from {
-  margin: 0;
-  font-size: 14px;
+  margin: 5px 0;
+  font-size: 12px;
 }
 
 .repo-bottom .left .left-bottom {
@@ -93,16 +93,29 @@
   display: flex;
 }
 
+.repo-bottom .left .left-bottom .one {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.repo-bottom .left .left-bottom .one div {
+  margin-left: 3px;
+}
+
+.repo-bottom .left .left-bottom .one .color {
+  height: 13px;
+  width: 13px;
+  background-color: green;
+  border-radius: 50%;
+  margin: 0;
+}
+
 .repo-bottom .left .left-bottom .two {
-  margin-left: 8px;
-}
-
-.repo-bottom .left .left-bottom .three {
-  margin-left: 8px;
-}
-
-.repo-bottom .left .left-bottom .four {
-  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  padding-right: 7px;
 }
 
 /* Right Part Of A Single Repository */
@@ -111,13 +124,31 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.repo-bottom .right button {
-  height: 25px;
+.repo-bottom .right .button1 {
+  height: 20px;
   display: flex;
-  text-align: center;
-  margin-top: 25px;
+  align-items: center;
+  font-size: 13px;
+  padding: 11px 10px;
+  border: 1px solid rgb(216, 213, 213);
+  cursor: pointer;
+}
+
+.repo-bottom .right .button2 {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 11px 10px;
+  border-right: 1px solid rgb(216, 213, 213);
+  border-top: 1px solid rgb(216, 213, 213);
+  border-bottom: 1px solid rgb(216, 213, 213);
+  border-left: none;
+  cursor: pointer;
 }
 
 /* Media Queries */
