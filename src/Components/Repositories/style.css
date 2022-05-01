@@ -1,3 +1,153 @@
 .repo-style {
   width: 72%;
 }
+
+/* Top Part Of  Repositories */
+
+/* Tab Style */
+.tab {
+  display: none;
+}
+
+.repo-top {
+  display: flex;
+  margin: 17px 0;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.repo-input {
+  width: 70%;
+}
+
+.repo-input input {
+  width: 100%;
+  padding: 4px 0;
+  padding-left: 5px;
+}
+
+.repo-select {
+  margin: 0;
+  width: 26%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.repo-select button {
+  border: 1px solid gray;
+  height: 100%;
+  margin: 0 2px;
+  padding: 4 10px;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
+
+/* Bottom Part That Contains All Repositories */
+
+.repo-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 14px 0;
+}
+
+/* Left Part Of A Single Repository */
+
+.repo-bottom .left .left-top {
+  display: flex;
+}
+
+.repo-bottom .left .left-top h3 {
+  margin: 0;
+  font-size: 18px;
+  color: blue;
+}
+
+.repo-bottom .left .left-top p {
+  margin: 3px 0 0 7px;
+  border: 1px solid gray;
+  padding: 1px 3px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.repo-bottom .left .forked-from {
+  margin: 0;
+  font-size: 14px;
+}
+
+.repo-bottom .left .description {
+  margin: 0;
+  font-size: 14px;
+}
+.repo-bottom .left .forked-from {
+  margin: 0;
+  font-size: 14px;
+}
+
+.repo-bottom .left .left-bottom {
+  margin: 0;
+  font-size: 12px;
+  display: flex;
+}
+
+.repo-bottom .left .left-bottom .two {
+  margin-left: 8px;
+}
+
+.repo-bottom .left .left-bottom .three {
+  margin-left: 8px;
+}
+
+.repo-bottom .left .left-bottom .four {
+  margin-left: 8px;
+}
+
+/* Right Part Of A Single Repository */
+
+.repo-bottom .right {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.repo-bottom .right button {
+  height: 25px;
+  display: flex;
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* Media Queries */
+
+@media (max-width: 840px) {
+  .repo-style {
+    width: 100%;
+  }
+
+  .tab {
+    height: 30px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    display: block;
+  }
+
+  .tab ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .tab ul li {
+    text-align: center;
+    height: 100%;
+    border-bottom: 1px solid red;
+    font-size: 14px;
+    margin: 0 10px;
+    list-style: none;
+  }
+}

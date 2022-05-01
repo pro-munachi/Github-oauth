@@ -33,3 +33,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* Media Queries */
+
+@media (max-width: 840px) {
+  .profile-container {
+    margin: 40px 0;
+  }
+
+  .profile-bottom {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .profile-top {
+    display: none;
+  }
+}

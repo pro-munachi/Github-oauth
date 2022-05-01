@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.user-hidden {
+  display: none;
+}
+
 .user-image img {
   border-radius: 50%;
   width: 250px;
@@ -22,16 +26,89 @@
 
 .user-top h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 .user-top h5 {
   margin: 0;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .user-top button {
   width: 100%;
-  padding: 3px 0;
+  padding: 6px 0;
   margin: 6px 0;
+  border-radius: 4px;
+  border: 1px solid gray;
+}
+
+.user-top p {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.user-follow {
+  display: flex;
+}
+
+.user-follow p {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.user-follow p span {
+  font-weight: 500;
+}
+
+.user-follow .mid {
+  margin: 5px 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.user-bottom {
+  margin: 0;
+}
+
+.user-bottom p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Media Queries */
+
+@media (max-width: 1030px) {
+  .user-container {
+    width: 24%;
+  }
+
+  .user-image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    position: absolute;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 840px) {
+  .user-container {
+    width: 100%;
+  }
+
+  .user-image {
+    display: none;
+  }
+
+  .user-top .user-name,
+  .user-login {
+    display: none;
+  }
+
+  .user-hidden {
+    display: flex;
+  }
 }
