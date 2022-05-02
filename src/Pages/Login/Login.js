@@ -38,7 +38,7 @@ const Login = () => {
         <h3>Login With Github</h3>
         <a
           className='App-link'
-          href='http://github.com/login/oauth/authorize?client_id=8ab3d60d95734cf323a8&redirect_uri=http://localhost:3000/'
+          href='http://github.com/login/oauth/authorize?client_id=8ab3d60d95734cf323a8&redirect_uri=https://github-oauth-pro-munachi.vercel.app/'
         >
           <button>Signin with Github</button>
         </a>

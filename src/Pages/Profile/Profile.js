@@ -13,6 +13,7 @@ import User from '../../Components/User/User'
 import './style.css'
 import { getGithubData } from '../../store/features/github/githubSlice'
 import Loader from '../../Components/Loader/Loader'
+import Error from '../../Components/Error/Error'
 
 const Profile = () => {
   const dispatch = useDispatch()
@@ -28,48 +29,63 @@ const Profile = () => {
         <Loader />
       ) : (
         <>
-          <div className='profile-top'>
-            <ul>
-              <li>
-                <MenuBookIcon
-                  style={{ fontSize: '16px', margin: '0 6px', color: 'gray' }}
-                />{' '}
-                Overview
-              </li>
-              <li className='repo-tab'>
-                <CreditScoreIcon
-                  style={{ fontSize: '16px', margin: '0 6px' }}
-                />{' '}
-                Repositories <div>{res.isSuccess && '20'}</div>
-              </li>
-              <li>
-                <AccountTreeIcon
-                  style={{ fontSize: '16px', margin: '0 6px', color: 'gray' }}
-                />{' '}
-                Projects
-              </li>
-              <li>
-                <InventoryIcon
-                  style={{
-                    fontSize: '16px',
-                    margin: '0 6px',
-                    color: 'gray',
-                  }}
-                />
-                Packages
-              </li>
-              <li>
-                <StarBorderIcon style={{ fontSize: '18px', margin: '0 6px' }} />
-                Stars
-              </li>
-            </ul>
-          </div>
+          {!res.isSuccess ? (
+            <Error />
+          ) : (
+            <>
+              <div className='profile-top'>
+                <ul>
+                  <li>
+                    <MenuBookIcon
+                      style={{
+                        fontSize: '16px',
+                        margin: '0 6px',
+                        color: 'gray',
+                      }}
+                    />{' '}
+                    Overview
+                  </li>
+                  <li className='repo-tab'>
+                    <CreditScoreIcon
+                      style={{ fontSize: '16px', margin: '0 6px' }}
+                    />{' '}
+                    Repositories <div>{res.isSuccess && '20'}</div>
+                  </li>
+                  <li>
+                    <AccountTreeIcon
+                      style={{
+                        fontSize: '16px',
+                        margin: '0 6px',
+                        color: 'gray',
+                      }}
+                    />{' '}
+                    Projects
+                  </li>
+                  <li>
+                    <InventoryIcon
+                      style={{
+                        fontSize: '16px',
+                        margin: '0 6px',
+                        color: 'gray',
+                      }}
+                    />
+                    Packages
+                  </li>
+                  <li>
+                    <StarBorderIcon
+                      style={{ fontSize: '18px', margin: '0 6px' }}
+                    />
+                    Stars
+                  </li>
+                </ul>
+              </div>
+              <div className='profile-bottom'>
+                <User profile={res.data.profile} />
 
-          <div className='profile-bottom'>
-            <User profile={res.data.profile} />
-
-            <Repositories repos={res.data.repos} />
-          </div>
+                <Repositories repos={res.data.repos} />
+              </div>
+            </>
+          )}
         </>
       )}
     </div>

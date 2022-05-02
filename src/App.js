@@ -4,20 +4,22 @@ import { ToastContainer } from 'react-toastify'
 
 import Login from './Pages/Login/Login'
 import Profile from './Pages/Profile/Profile'
-import './index.css'
+import './App.css'
 
 function App() {
   return (
-    <Router>
-      <ToastContainer />
+    <div className='app'>
+      <Router>
+        <ToastContainer />
 
-      <div>
-        <Routes>
-          <Route exact path='/' element={<Login />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
-      </div>
-    </Router>
+        <div>
+          <Routes>
+            <Route exact path='/' element={<Login />} />
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   )
 }
 

@@ -64,6 +64,9 @@
 
 /* Left Part Of A Single Repository */
 
+.repo-bottom .left {
+  width: 70%;
+}
 .repo-bottom .left .left-top {
   display: flex;
 }
@@ -126,10 +129,29 @@
 /* Right Part Of A Single Repository */
 
 .repo-bottom .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30%;
+  float: right;
+}
+
+.repo-bottom .right .graph {
+  height: 2px;
+  width: 150px;
+  background: green;
+  margin-top: 15px;
+}
+
+.repo-bottom .right .star {
+  float: right;
+  position: relative;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-left: 300px; */
 }
 
 .repo-bottom .right .button1 {
@@ -161,6 +183,17 @@
 @media (max-width: 840px) {
   .repo-style {
     width: 100%;
+  }
+
+  .repo-bottom .right .graph {
+    display: none;
+  }
+
+  .repo-bottom .right {
+    width: 30%;
+  }
+  .repo-bottom .left {
+    width: 70%;
   }
 
   .tab {
@@ -230,13 +263,5 @@
   .repo-select button {
     height: 30px;
     padding: 0 10px;
-    /* border-radius: 3px;
-    text-transform: capitalize;
-    border: 1px solid rgb(216, 213, 213);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    outline: none;
-    font-weight: 700; */
   }
 }

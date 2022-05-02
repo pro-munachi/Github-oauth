@@ -48,13 +48,17 @@ const RepoMap = ({ item }) => {
       </div>
 
       <div className='right'>
-        <button className='button1'>
-          <StarBorderIcon style={{ fontSize: '16px' }} />
-          Star
-        </button>
-        <button className='button2'>
-          <KeyboardArrowDownIcon style={{ fontSize: '14px' }} />
-        </button>
+        <div className='star'>
+          <button className='button1'>
+            <StarBorderIcon style={{ fontSize: '16px' }} />
+            Star
+          </button>
+          <button className='button2'>
+            <KeyboardArrowDownIcon style={{ fontSize: '14px' }} />
+          </button>
+        </div>
+
+        <div className='graph'></div>
       </div>
     </div>
   )

@@ -8,8 +8,8 @@ const RepoTop = () => {
   const [find, setFind] = useState('')
 
   const dispatch = useDispatch()
-  let res = useSelector((state) => state.github)
-  let fil = res.data.repos
+  const res = useSelector((state) => state.github)
+  const fil = res.filteredData.repos
 
   const filterArray = (e) => {
     setFind(e.target.value)
@@ -21,6 +21,7 @@ const RepoTop = () => {
       const name = value.name.toLowerCase().includes(searchStr)
       return name
     })
+
     let data = {
       hasError: false,
       profile: res.data.profile,
@@ -28,6 +29,7 @@ const RepoTop = () => {
     }
 
     console.log(filteredData)
+    console.log(fil)
 
     dispatch(searchData(data))
 

@@ -49,6 +49,7 @@ const githubSlice = createSlice({
   name: 'github',
   initialState: {
     data: {},
+    filteredData: {},
     isSuccess: false,
     message: '',
     loading: false,
@@ -62,6 +63,7 @@ const githubSlice = createSlice({
     [getGithubData.fulfilled]: (state, { payload }) => {
       state.loading = false
       state.data = payload
+      state.filteredData = payload
       state.isSuccess = true
     },
     [getGithubData.rejected]: (state, { payload }) => {
