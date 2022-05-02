@@ -9,14 +9,17 @@ export const getGithubData = createAsyncThunk(
       const headers = {
         Authorization: `token ${token}`,
       }
-      const { data } = await axios.get(
-        `//reyvue.herokuapp.com/users/gitdata/${token}`,
-        { headers: headers }
-      )
 
-      console.log(data)
+      if (token) {
+        const { data } = await axios.get(
+          `//reyvue.herokuapp.com/users/gitdata/${token}`,
+          { headers: headers }
+        )
 
-      return data
+        console.log(data)
+
+        return data
+      }
     } catch (error) {
       rejectWithValue(error.response.data)
     }
