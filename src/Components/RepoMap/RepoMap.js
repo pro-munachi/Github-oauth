@@ -3,6 +3,7 @@ import Moment from 'react-moment'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined'
+import ParkOutlinedIcon from '@mui/icons-material/ParkOutlined'
 
 const RepoMap = ({ item }) => {
   return (
@@ -12,8 +13,6 @@ const RepoMap = ({ item }) => {
           <h3>{item.name}</h3>
           <p>{item.visibility === 'public' && 'Public'}</p>
         </div>
-
-        <p className='forked-from'>{item.fork && item.forks_url}</p>
 
         <p className='description'>{item.description && item.description}</p>
 
@@ -30,7 +29,12 @@ const RepoMap = ({ item }) => {
               {item.stargazers_count}
             </p>
           )}
-          <p className='two'>{item.forks_count > 0 && item.forks_count}</p>
+          {item.forks_count > 0 && (
+            <p className='two'>
+              <ParkOutlinedIcon style={{ fontSize: '16px' }} className='icon' />
+              {item.forks_count}
+            </p>
+          )}
           {item.license && (
             <p className='two'>
               <BalanceOutlinedIcon

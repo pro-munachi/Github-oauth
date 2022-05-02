@@ -19,6 +19,8 @@ export const getGithubData = createAsyncThunk(
         console.log(data)
 
         return data
+      } else {
+        window.location.href = '/'
       }
     } catch (error) {
       rejectWithValue(error.response.data)
