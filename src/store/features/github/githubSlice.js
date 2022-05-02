@@ -41,7 +41,6 @@ export const searchData = createAsyncThunk(
       //   }
 
       //   console.log(res)
-      console.log(arg)
 
       return arg
     } catch (error) {

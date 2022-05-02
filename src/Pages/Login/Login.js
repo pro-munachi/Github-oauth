@@ -14,8 +14,6 @@ const Login = () => {
   useEffect(() => {
     const code = new URLSearchParams(search).get('code')
 
-    console.log(code)
-
     if (code) {
       toast.info('Hold on while your request is processed')
       const body = {

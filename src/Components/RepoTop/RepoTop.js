@@ -14,8 +14,6 @@ const RepoTop = () => {
   const filterArray = (e) => {
     setFind(e.target.value)
 
-    console.log(e.target.value)
-
     const filteredData = fil.filter((value) => {
       const searchStr = e.target.value.toLowerCase()
       const name = value.name.toLowerCase().includes(searchStr)
@@ -28,12 +26,7 @@ const RepoTop = () => {
       repos: filteredData,
     }
 
-    console.log(filteredData)
-    console.log(fil)
-
     dispatch(searchData(data))
-
-    // console.log(res.data.repos)
   }
   return (
     <div className='repo-top'>
