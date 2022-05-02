@@ -23,7 +23,7 @@
 }
 
 .repo-input input {
-  width: 100%;
+  width: 80%;
   padding: 8px 0;
   padding-left: 8px;
   border: 1px solid rgb(216, 213, 213);
@@ -45,6 +45,11 @@
   border-radius: 3px;
   text-transform: capitalize;
   border: 1px solid rgb(216, 213, 213);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  font-weight: 700;
 }
 
 /* Bottom Part That Contains All Repositories */
@@ -159,26 +164,79 @@
   }
 
   .tab {
-    height: 30px;
+    height: 60px;
     text-align: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(233, 229, 229);
     width: 100%;
     display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 
   .tab ul {
     display: flex;
     text-align: center;
     justify-content: center;
-    height: 100%;
+  }
+
+  .tab ul .repo-tab {
+    text-align: center;
+    border-bottom: 2px solid red;
+    font-size: 14px;
+    margin: 0 10px;
+    list-style: none;
+    font-weight: 700;
+    display: flex;
+    padding-bottom: 18px;
+  }
+
+  .tab ul .repo-tab div {
+    background-color: rgb(241, 238, 238);
+    margin-left: 3px;
+    padding: 0 10px;
+    border-radius: 10px;
+    font-size: 12px;
   }
 
   .tab ul li {
     text-align: center;
     height: 100%;
-    border-bottom: 1px solid red;
     font-size: 14px;
     margin: 0 10px;
     list-style: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+
+  .repo-top {
+    flex-direction: column;
+  }
+
+  .repo-input {
+    width: 100%;
+  }
+
+  .repo-input input {
+    width: 100%;
+  }
+
+  .repo-select {
+    width: 100%;
+    justify-content: start;
+    margin-top: 15px;
+  }
+
+  .repo-select button {
+    height: 30px;
+    padding: 0 10px;
+    /* border-radius: 3px;
+    text-transform: capitalize;
+    border: 1px solid rgb(216, 213, 213);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    font-weight: 700; */
   }
 }

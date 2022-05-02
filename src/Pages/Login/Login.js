@@ -1,32 +1,48 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+import './login.css'
 
 const Login = () => {
-  //   const click = () => {
-  //     let header = new Headers({
-  //       Authorization: `token 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`,
-  //     })
+  const navigate = useNavigate()
 
-  //     let client_secret = '08ec9ebcb6e39f9d3651db0885a37a786404720d'
-  //     axios
-  //       .get(' https://api.github.com/user')
-  //       .then((res) => {
-  //         console.log(res.data)
-  //       })
-  //       .catch((err) => {
-  //         console.log(err)
-  //       })
-  //   }
+  const search = useLocation().search
+
+  useEffect(() => {
+    const code = new URLSearchParams(search).get('code')
+
+    console.log(code)
+
+    if (code) {
+      toast.info('Hold on while your request is processed')
+      const body = {
+        code,
+      }
+      axios.post('//reyvue.herokuapp.com/users/github', body).then((res) => {
+        if (res.data.hasError === false) {
+          toast.success('Login Successful')
+
+          localStorage.setItem('token', res.data.token)
+          navigate('/profile')
+        }
+      })
+    }
+  })
 
   return (
-    <div>
-      <a
-        className='App-link'
-        href='http://github.com/login/oauth/authorize?client_id=8ab3d60d95734cf323a8&redirect_uri=http://localhost:3000/'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Learn React
-      </a>
+    <div className='login-container'>
+      <div>
+        <h3>Login With Github</h3>
+        <a
+          className='App-link'
+          href='http://github.com/login/oauth/authorize?client_id=8ab3d60d95734cf323a8&redirect_uri=http://localhost:3000/'
+        >
+          <button>Signin with Github</button>
+        </a>
+      </div>
     </div>
   )
 }

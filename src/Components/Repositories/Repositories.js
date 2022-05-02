@@ -1,100 +1,61 @@
-import React, { useState } from 'react'
-import Moment from 'react-moment'
-import StarBorderIcon from '@mui/icons-material/StarBorder'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined'
+import React from 'react'
 
+import StarBorderIcon from '@mui/icons-material/StarBorder'
+
+import MenuBookIcon from '@mui/icons-material/MenuBook'
+import InventoryIcon from '@mui/icons-material/Inventory'
+import CreditScoreIcon from '@mui/icons-material/CreditScore'
+import AccountTreeIcon from '@mui/icons-material/AccountTree'
+import { useSelector } from 'react-redux'
 import './style.css'
+import RepoMap from '../RepoMap/RepoMap'
+import RepoTop from '../RepoTop/RepoTop'
 
 const Repositories = ({ repos }) => {
-  console.log(repos)
+  let res = useSelector((state) => state.github)
+
   return (
     <div className='repo-style'>
       <div className='tab'>
         <ul>
-          <li>Overview</li>
           <li>
-            Repositories <span>{repos && repos.length}</span>
+            <MenuBookIcon
+              style={{ fontSize: '16px', margin: '0 6px', color: 'gray' }}
+            />{' '}
+            Overview
           </li>
-          <li>Projects</li>
-          <li>Packages</li>
-          <li>Stars</li>
+          <li className='repo-tab'>
+            <CreditScoreIcon style={{ fontSize: '16px', margin: '0 6px' }} />{' '}
+            Repositories{' '}
+            <div>{res.isSuccess && repos ? repos.length : null}</div>
+          </li>
+          <li>
+            <AccountTreeIcon
+              style={{ fontSize: '16px', margin: '0 6px', color: 'gray' }}
+            />{' '}
+            Projects
+          </li>
+          <li>
+            <InventoryIcon
+              style={{
+                fontSize: '16px',
+                margin: '0 6px',
+                color: 'gray',
+              }}
+            />
+            Packages
+          </li>
+          <li>
+            <StarBorderIcon style={{ fontSize: '18px', margin: '0 6px' }} />
+            Stars
+          </li>
         </ul>
       </div>
 
-      <div className='repo-top'>
-        <div className='repo-input'>
-          <input type='text' placeholder='Find a repository...' />
-        </div>
-
-        <div className='repo-select'>
-          <button>type</button>
-          <button>language</button>
-          <button>sort</button>
-        </div>
-      </div>
+      <RepoTop />
 
       {repos &&
-        repos.slice(0, 20).map((item) => (
-          <div className='repo-bottom' key={item.id}>
-            <div className='left'>
-              <div className='left-top'>
-                <h3>{item.name}</h3>
-                <p>{item.visibility === 'public' && 'Public'}</p>
-              </div>
-
-              <p className='forked-from'>{item.fork && item.forks_url}</p>
-
-              <p className='description'>
-                {item.description && item.description}
-              </p>
-
-              <div className='left-bottom'>
-                {item.language && (
-                  <div className='one'>
-                    <div className='color' />
-                    <div>{item.language}</div>
-                  </div>
-                )}
-                {item.stargazers_count > 0 && (
-                  <p className='two'>
-                    <StarBorderIcon
-                      style={{ fontSize: '16px' }}
-                      className='icon'
-                    />
-                    {item.stargazers_count}
-                  </p>
-                )}
-                <p className='two'>
-                  {item.forks_count > 0 && item.forks_count}
-                </p>
-                {item.license && (
-                  <p className='two'>
-                    <BalanceOutlinedIcon
-                      style={{ fontSize: '16px' }}
-                      className='icon'
-                    />
-                    {item.license.name}
-                  </p>
-                )}
-                <p className='four'>
-                  Updated{' '}
-                  <Moment fromNow>{item.updated_at && item.updated_at}</Moment>
-                </p>
-              </div>
-            </div>
-
-            <div className='right'>
-              <button className='button1'>
-                <StarBorderIcon style={{ fontSize: '16px' }} />
-                Star
-              </button>
-              <button className='button2'>
-                <KeyboardArrowDownIcon style={{ fontSize: '14px' }} />
-              </button>
-            </div>
-          </div>
-        ))}
+        repos.slice(0, 20).map((item) => <RepoMap key={item.id} item={item} />)}
     </div>
   )
 }

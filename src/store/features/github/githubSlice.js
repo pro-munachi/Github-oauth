@@ -5,17 +5,40 @@ export const getGithubData = createAsyncThunk(
   'github/getData',
   async (arg, { rejectWithValue }) => {
     try {
+      const token = localStorage.getItem('token')
       const headers = {
-        Authorization: 'token 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',
+        Authorization: `token ${token}`,
       }
       const { data } = await axios.get(
-        'http://localhost:5000/users/gitdata/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',
+        `//reyvue.herokuapp.com/users/gitdata/${token}`,
         { headers: headers }
       )
 
       console.log(data)
 
       return data
+    } catch (error) {
+      rejectWithValue(error.response.data)
+    }
+  }
+)
+
+export const searchData = createAsyncThunk(
+  'filter/searchData',
+  async (arg, { rejectWithValue }) => {
+    try {
+      //   let res = useSelector((state) => state.github)
+
+      //   let data = {
+      //     hasError: false,
+      //     profile: res.data.profile,
+      //     repos: arg,
+      //   }
+
+      //   console.log(res)
+      console.log(arg)
+
+      return arg
     } catch (error) {
       rejectWithValue(error.response.data)
     }
@@ -45,6 +68,12 @@ const githubSlice = createSlice({
       state.message = payload
       state.loading = false
       state.isSuccess = false
+    },
+
+    [searchData.fulfilled]: (state, { payload }) => {
+      state.loading = false
+      state.data = payload
+      state.isSuccess = true
     },
   },
 })
